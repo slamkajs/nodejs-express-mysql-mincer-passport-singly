@@ -1,0 +1,25 @@
+extends ../layouts/default
+
+block main
+  h1= title
+
+block content
+  .row
+    .offset1.span5
+      a(href="/auth/singly?service=linkedin")
+        img(src="/img/social/borderless/linkedin.png",width="32")
+      a(href="/auth/singly?service=facebook")
+        img(src="/img/social/borderless/facebook.png",width="32")
+      a(href="/auth/singly?service=twitter")
+        img(src="/img/social/borderless/twitter.png",width="32")
+      a(href="/auth/singly?service=google")
+        img(src="/img/social/borderless/gplus2.png",width="32")
+    .span6
+      if (typeof errors !== 'undefined')
+        .fade.in.alert.alert-block.alert-error
+          a.close(data-dismiss="alert", href="javascript:void(0)") x
+          ul
+            each error in errors
+              li= error.type
+
+      block auth
